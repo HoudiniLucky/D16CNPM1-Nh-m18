@@ -1,0 +1,154 @@
+﻿@model IEnumerable<PlasticStore.Models.Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@Styles.Render("~/Content/main")
+@Styles.Render("~/Content/product")
+<!-- ----------Slider---------- -->
+<div class="slider">
+    <a href="/" class="">
+        <img src="https://songlongplastic.com/wp-content/uploads/2021/09/banner-1-1.png"
+             alt="" style="height:660px ;object-fit: cover;" />
+    </a>
+</div>
+<!-- ----------Slider---------- -->
+<!-- ----------Banner---------- -->
+<div class="banner">
+    <div class="banner-item">
+        <img src="https://songlongplastic.com/wp-content/uploads/2021/10/Rectangle-1407.png"
+             alt="" style="height: 300px" />
+    </div>
+    <div class="banner-item">
+        <img src="https://songlongplastic.com/wp-content/uploads/2022/07/banner-binh-hoa-qua.jpg"
+             alt="" style="height: 300px" />
+    </div>
+    <div class="banner-item ">
+        <img src="https://songlongplastic.com/wp-content/uploads/2022/04/Binh-giu-nhiet-2L-4.jpg"
+             alt="" style="height: 300px" />
+    </div>
+</div>
+
+<!-- ----------Banner---------- -->
+
+@{
+    int ctop = 0;
+    int cbot = 0;
+}
+<!-- Product -->
+<div class="products">
+    <div style="text-transform:uppercase" class="product-headingg">Sản phẩm của mọi gia đình</div>
+    <div class="grid">
+        <div class="grid__row">
+            @if (Model.Any())
+            {
+                <div class="grid__row">
+                    @foreach (var item in Model)
+                    {
+                        cbot++;
+                        if (cbot > 7)
+                        {
+                            <div class="grid__col-3">
+                                <div class="product">
+                                    <h1 style="display:none" id="idProduct">@item.idProduct</h1>
+
+                                    @if (item.ImageProduct.Any())
+                                    {
+                                        <img src="@item.ImageProduct.First().URLImage"
+                                             alt=""
+                                             class="product-img product-show" />
+                                        <img src="@item.ImageProduct.Last().URLImage"
+                                             alt=""
+                                             class="product-img product-img-hover" />
+                                    }
+                                </div>
+
+                                <div class="product-info">
+                                    <div class="product-title">
+                                        @item.nameProduct
+                                    </div>
+                                    <div class="product-price">@item.price,000₫</div>
+                                </div>
+                            </div>
+                        }
+
+                        if (cbot == 15)
+                        {
+                            break;
+                        }
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No products available.</p>
+            }
+
+
+        </div>
+
+    </div>
+</div>
+<!-- Product -->
+<!-- ----------Banner---------- -->
+<div style="margin-top:30px" class="slider">
+    <img src="https://songlongplastic.com/wp-content/uploads/2021/11/View-3-1.jpg"
+         alt="" style="height: 700px" />
+</div>
+<!-- ----------Banner---------- -->
+<!-- Product -->
+
+
+<div class="products">
+    <div style="text-transform:uppercase" class="product-headingg">Sản phẩm nổi bật</div>
+    <div class="grid">
+        <div class="grid__row">
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    ctop++;
+                    <div class="grid__col-3">
+                        <div class="product">
+                            <h1 style="display:none" id="idProduct">@item.idProduct</h1>
+
+                            @if (item.ImageProduct.Any())
+                            {
+                                <img src="@item.ImageProduct.First().URLImage"
+                                     alt=""
+                                     class="product-img product-show" />
+                                <img src="@item.ImageProduct.Last().URLImage"
+                                     alt=""
+                                     class="product-img product-img-hover" />
+                            }
+                        </div>
+
+                        <div class="product-info">
+                            <div class="product-title">
+                                @item.nameProduct
+                            </div>
+                            <div class="product-price">@item.price,000₫</div>
+                        </div>
+                    </div>
+
+                    if (ctop == 8)
+                    {
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                <p>No products available.</p>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Product -->
+@Scripts.Render("~/bundles/product")
+
+
+

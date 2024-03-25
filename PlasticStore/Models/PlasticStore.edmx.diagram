@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="be35334d6e154383b1025de413ef60cb" Name="Diagram1">
+        <EntityTypeShape EntityType="PlasticStoreModel.Bill" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticStoreModel.DetailBIll" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticStoreModel.ImageProduct" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticStoreModel.Permission" Width="1.5" PointX="1.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticStoreModel.Product" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticStoreModel.Types" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticStoreModel.User" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlasticStoreModel.Voucher" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="PlasticStoreModel.FK_Bill_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PlasticStoreModel.FK_DetailBIll_Bill" ManuallyRouted="false" />
+        <AssociationConnector Association="PlasticStoreModel.FK_DetailBIll_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="PlasticStoreModel.FK__ImageProd__idPro__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="PlasticStoreModel.FK__User__idPermissi__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="PlasticStoreModel.FK__Product__idType__5629CD9C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

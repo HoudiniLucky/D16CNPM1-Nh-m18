@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon"
+          href="https://songlongplastic.com/wp-content/themes/songlong-plastic/screenshot.jpg"
+          type="image/png" />
+    <title>SONGLONG PLASTIC</title>
+
+    <!-- Icon -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+          rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Reset CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <!-- Sử dụng Bootstrap từ CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- Sử dụng Bootstrap JavaScript từ CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Quicksand font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet" />
+    <!-- Style -->
+    @Styles.Render("~/Content/layout")
+    @Styles.Render("~/Content/main")
+    <style>
+        #app {
+            position: relative;
+            height: 100%;
+        }
+
+        .footer {
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .item-icon-cart {
+        }
+
+        .cart-count {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff6a00;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: initial;
+            top: 29%;
+            font-weight: bolder;
+            left: 50%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header-top-logo {
+            flex: 1;
+            max-width: 10%;
+            /* Remove margin-right to avoid extra spacing */
+        }
+
+        .header-nav {
+            flex: 1;
+            max-width: 60%; /* Adjust this as needed */
+            display: flex;
+            align-items: center;
+            margin-right: 20px; 
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list-item {
+            margin-right: 20px;
+        }
+
+        .header-top-action {
+            flex: 1;
+            max-width: 30%;
+            display: flex;
+            align-items: center;
+            padding-left: 580px;
+        }
+
+        .header-top-action-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .item-icon-cart,
+        .item-icon-user {
+            margin-right: 20px;
+        }
+
+        .margintop {
+            margin-top: 40px;
+        }
+
+        #app a {
+            text-decoration: none;
+        }
+
+        .font-1 {
+            font-size: 14px;
+        }
+
+        .font-2 {
+            font-size: 12px;
+        }
+
+        .icon-size {
+            width: 10px;
+            height: 10px;
+        }
+        /* Add any other styles as needed */
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <!-- ----------Header---------- -->
+        <header class="header">
+            <div class="gird">
+                <div class="header-top">
+                    <div class="header-top-logo">
+                        <a href="/home">
+                            <img src="https://songlongplastic.com/wp-content/themes/songlong-plastic/screenshot.jpg" alt="" class="logo-img" />
+                        </a>
+                    </div>
+                    <nav class="header-nav">
+                        <ul class="nav-list">
+                            <li class="nav-list-item">
+                                <a href="/" class="nav-list-link">Trang chủ</a>
+                            </li>
+                            <li class="nav-list-item">
+                                <a href="/collections" class="nav-list-link">Sản phẩm</a>
+                                <i class="nav-icon-dropdown bx bx-chevron-down"></i>
+
+                                <!-- Submenu -->
+
+                                <ul class="nav-subnav">
+                                    <li class="subnav-item">
+                                        <a href="/collections" class="nav-list-link nav-list-sublink">
+                                            Tất cả sản phẩm
+                                        </a>
+                                    </li>
+                                    <li class="subnav-item">
+                                        <a href="/collections/nhuagiadung" class="nav-list-link nav-list-sublink">
+                                            Sản phẩm gia dụng
+                                        </a>
+                                    </li>
+                                    <li class="subnav-item">
+                                        <a href="/collections/nhuatreem" class="nav-list-link nav-list-sublink">
+                                            Sản phẩm trẻ em
+                                        </a>
+                                    </li>
+                                    <li class="subnav-item">
+                                        <a href="/collections/nhuacongnghiep" class="nav-list-link nav-list-sublink">
+                                            Sản phẩm công nghiệp
+                                        </a>
+                                    </li>
+                                    <li class="subnav-item">
+                                        <a href="/collections/nhuapet" class="nav-list-link nav-list-sublink">
+                                            Sản phẩm PET
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-list-item">
+                                <a href="#" class="nav-list-link">Giới thiệu</a>
+                            </li>
+                            <li class="nav-list-item">
+                                <a href="https://www.facebook.com/ngp.2o3/" class="nav-list-link" target="_blank">Liên hệ</a>
+                            </li>
+                            <li class="nav-list-item">
+                                <a href="https://www.facebook.com/ngp.2o3/" class="nav-list-link" target="_blank">Tin tức</a>
+                            </li>
+                            <li class="nav-list-item">
+                                <a href="https://drive.google.com/file/d/1N58-P4eUMkobc3-cLzhAuSEbNlMV1xmb/edit" class="nav-list-link" target="_blank">E-Catalogue</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header-top-action">
+                        <ul class="header-top-action-list">
+                            <!-- giỏ hàng -->
+                            <li class="header-top-action-item item-icon-cart">
+                                <span href="" class="header-top-link">
+                                    <i class="bx bx-cart"></i>
+                                </span>
+                                <div class="header-top-cart-box header-top-modal  ">
+                                    <span class="box-triangle">
+                                        <svg viewBox="0 0 20 9" role="presentation">
+                                            <path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z"
+                                                  fill="#ffffff"></path>
+                                        </svg>
+                                    </span>
+                                    <div class="box-heading">giỏ hàng</div>
+                                    <!-- giỏ hàng trống -->
+                                    <div class="box-cart-empty">
+                                        <svg width="81" height="70" viewBox="0 0 81 70"><g transform="translate(0 2)" stroke-width="4" stroke="#1e2d7d" fill="none" fill-rule="evenodd"><circle stroke-linecap="square" cx="34" cy="60" r="6"></circle><circle stroke-linecap="square" cx="67" cy="60" r="6"></circle><path d="M22.9360352 15h54.8070373l-4.3391876 30H30.3387146L19.6676025 0H.99560547"></path></g></svg>
+                                        <div>Giỏ hàng của bạn đang trống</div>
+                                    </div>
+                                    <div class="box-item-cart">
+                                    </div>
+                                    <div class="box-payment">
+                                        <div class="box-payment-item">
+                                            <div class="payment-text payment-item-top">tổng tiền:</div>
+                                            <div class="payment-total payment-item-top">0đ</div>
+                                        </div>
+                                        <div class="box-payment-item">
+                                            <button type="button" class="button-hover box-view-cart box-payment-button">Xem giỏ hàng</button>
+                                            <button type="button" class="button-hover box-make-payment  box-payment-button">Thanh toán</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cart-count">
+                                    0
+                                </div>
+                            </li>
+                            <!-- giỏ hàng -->
+                            <!-- Login -->
+                            <li class="header-top-action-item item-icon-user">
+
+                                @if (Session["USER_SESSION"] != null)
+                                {
+                                    <span class="header-top-link">
+                                        <i class="bx bx-user-check"></i>
+                                    </span>
+                                    <!-- đã đăng nhập -->
+                                    <div class="header-top-modal header-logged ">
+                                        <span class="box-triangle">
+                                            <svg viewBox="0 0 20 9" role="presentation">
+                                                <path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z"
+                                                      fill="#ffffff"></path>
+                                            </svg>
+                                        </span>
+                                        <p class="heading">tài khoản</p>
+                                        <div class="heading-login-with"></div>
+                                        <div class="info-box">
+                                            <p class="info-name"></p>
+
+
+                                            <p class="info-logout info-detail"><a href="/home/MyInfo">Quản lý tài khoản</a></p>
+                                            @if (Session["SESSION_GROUP_ADMIN"] != null)
+                                            {
+                                                <p class="info-logout info-detail"><a href="/Admin/Dashboard/Index"> Quản lý cửa hàng</a></p>
+                                            }
+                                            <p class="info-logout"><a href="/login/SignOut"> Đăng xuất</a></p>
+
+                                        </div>
+
+                                    </div>
+                                }
+                                else
+                                {
+                                    <span class="header-top-link">
+                                        <a style="color: #050505" href="/login"><i class='bx bx-user'></i></a>
+                                    </span>
+                                }
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </header>
+
+        @RenderBody()
+
+        <div class="container-fluid p-0 margintop">
+
+            <!-- Footer -->
+            <footer class="text-center text-lg-start text-white"
+                    style="background-color: #1c2331">
+                <!-- Section: Social media -->
+                <section class="d-flex justify-content-between p-4 font-1"
+                         style="background-color: #6351ce">
+                    <!-- Left -->
+                    <div class="me-5">
+                        <span>Liên hệ với chúng tôi qua mạng xã hội</span>
+                    </div>
+                    <!-- Left -->
+                    <!-- Right -->
+                    <div>
+                        <a href="" class="text-white me-4">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="" class="text-white me-4">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="" class="text-white me-4">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="" class="text-white me-4">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="" class="text-white me-4">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="" class="text-white me-4">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    <!-- Right -->
+                </section>
+                <!-- Section: Social media -->
+                <!-- Section: Links  -->
+                <section class="">
+                    <div class="container text-center text-md-start mt-5">
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+                            <!-- Grid column -->
+                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                <!-- Content -->
+                                <h5 class="text-uppercase fw-bold">SongLong Plastic</h5>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 2px" />
+                                <p class="font-2">
+                                    Chúng tôi chuyên cung cấp các sản phẩm nhựa chất lượng cao với
+                                    mức giá cạnh tranh nhất trên thị trường.
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+                            <!-- Grid column -->
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <!-- Links -->
+                                <h5 class="text-uppercase fw-bold">Sản phẩm</h5>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 2px" />
+                                <p class="font-2">
+                                    <a href="#!" class="text-white">Sản phẩm gia dụng</a>
+                                </p>
+                                <p class="font-2">
+                                    <a href="#!" class="text-white">Sản phẩm trẻ em</a>
+                                </p>
+                                <p class="font-2">
+                                    <a href="#!" class="text-white">Sản phẩm công nghiệp</a>
+                                </p>
+                                <p class="font-2">
+                                    <a href="#!" class="text-white">Sản phẩm PET</a>
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+                            <!-- Grid column -->
+                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <!-- Links -->
+                                <h5 class="text-uppercase fw-bold">Có thể bạn cần</h5>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 2px" />
+                                <p class="font-2">
+                                    <a href="#!" class="text-white">Tài khoản của bạn</a>
+                                </p>
+                                <p class="font-2">
+                                    <a href="#!" class="text-white">Trở thành thành viên của chúng tôi</a>
+                                </p>
+                                <p class="font-2">
+                                    <a href="#!" class="text-white">Đánh giá</a>
+                                </p>
+                                <p class="font-2">
+                                    <a href="#!" class="text-white">Trợ giúp</a>
+                                </p>
+                            </div>
+                            <!-- Grid column -->
+                            <!-- Grid column -->
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                                <!-- Links -->
+                                <h5 class="text-uppercase fw-bold">Liên hệ</h5>
+                                <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                                    style="width: 60px; background-color: #7c4dff; height: 2px" />
+                                <p class="font-2"><i class="fas fa-home mr-3"></i> Long Biên, Hà Nội</p>
+                                <p class="font-2"><i class="fas fa-envelope mr-3"></i> giaphuc972003@gmail.com</p>
+                                <p class="font-2"><i class="fas fa-phone mr-3"></i> +84 342315090</p>
+                                <p class="font-2"><i class="fas fa-print mr-3"></i> +84 342315090</p>
+                            </div>
+                            <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                </section>
+                <!-- Section: Links  -->
+                <!-- Copyright -->
+                <div class="text-center p-3"
+                     style="background-color: rgba(0, 0, 0, 0.2)">
+                    <p class="font-2">
+                        Powered by
+                        <a class="text-white" href="https://mdbootstrap.com/">Nguyen Gia Phuc - Nguyen Cao Trung</a>
+                    </p>
+                </div>
+                <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+
+        </div>
+        <!-- End of .container -->
+
+
+
+        @Scripts.Render("~/bundles/admin/jquery")
+
+
+
+        @Scripts.RenderFormat("<script src='{0}' type='module'></script>", "~/bundles/index")
+        @RenderSection("scripts", required: false)
+
+    </div>
+</body>
+</html>

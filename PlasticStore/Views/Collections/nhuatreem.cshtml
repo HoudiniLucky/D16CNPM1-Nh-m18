@@ -1,0 +1,59 @@
+﻿
+@model IEnumerable<PlasticStore.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/main")
+@Styles.Render("~/Content/product")
+
+<div class="container">
+    <div class="products">
+        <div class="product-heading">Tất cả sản phẩm nhựa dành cho trẻ em</div>
+        <div class="grid">
+            <div class="grid__row">
+                @if (Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="grid__col-3">
+                            @if (!string.IsNullOrEmpty(item.idProduct))
+                            {
+                                <h1 style="display:none" id="idProduct">@item.idProduct</h1>
+                            }
+                            <div class="product">
+                                @if (item.ImageProduct.Any())
+                                {
+                                    <img src="@item.ImageProduct.First().URLImage"
+                                         alt=""
+                                         class="product-img product-show" />
+                                    <img src="@item.ImageProduct.Last().URLImage"
+                                         alt=""
+                                         class="product-img product-img-hover" />
+                                }
+                            </div>
+                            <div class="product-info">
+                                <div class="product-title">
+                                    @item.nameProduct
+                                </div>
+                                <div class="product-price">@item.price,000₫</div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No products available.</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Product end -->
+
+</div>
+
+
+
+@Scripts.Render("~/bundles/product")
+

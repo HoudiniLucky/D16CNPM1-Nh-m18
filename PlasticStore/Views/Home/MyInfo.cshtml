@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PlasticStore.Models.User>
+@{
+    ViewBag.Title = "MyInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .container {
+        margin-top: 100px;
+    }
+</style>
+
+
+@Styles.Render("~/Content/register")
+<div class="container">
+    <div class="form-login form-login-cus">
+        <form action="/home/EditInfo" method="post">
+            @Html.AntiForgeryToken()
+            <p class="heading">THÔNG TIN TÀI KHOẢN</p>
+            <div class="heading-login-with">Chỉnh sửa thông tin tài khoản</div>
+            @foreach (var item in Model)
+            {
+                <div class="login-box-cus">
+                    <div class="header-box login-box">
+                        <div class="form-control2">
+                            <input name="fullName" type="text" required placeholder="Họ và tên" value="@item.fullName" class="modal-form-input2" />
+                        </div>
+                        <div class="form-control2">
+                            <select name="gender" class="modal-form-input2">
+
+                                @if (item.gender == true)
+                                {
+                                    <option selected value="@item.gender">Nam  </option>
+                                    <option value="False">Nữ</option>
+                                }
+                                else
+                                {
+                                    <option value="True">Nam</option>
+                                    <option selected value="@item.gender">Nữ  </option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-control2">
+                            <input name="email" type="email" required placeholder="Email" value="@item.email" class="modal-form-input2" />
+                        </div>
+
+                        <div class="form-control2">
+                            <input name="phone" type="number" min="0" required placeholder="Số điện thoại" value="@item.phone" class="modal-form-input2" />
+                        </div>
+                        <div class="form-control2">
+                            <input name="address" type="text" required placeholder="Địa chỉ" value="@item.address" class="modal-form-input2" />
+                        </div>
+                        <div class="form-control2">
+                            <input name="identityCard" type="number" required placeholder="CMND" value="@item.identityCard" class="modal-form-input2" />
+                        </div>
+                        <div class="form-control2">
+                            <input name="password" type="password" required placeholder="Mật khẩu" value="@item.password" class="modal-form-input2" />
+                        </div>
+                        <button type="submit" class="button-register">
+                            Cập nhật
+                        </button>
+                    </div>
+                </div>
+            }
+        </form>
+    </div>
+</div>
+
+
